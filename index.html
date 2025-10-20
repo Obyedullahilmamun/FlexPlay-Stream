@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Custom Video Player</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Player.js -->
+    <script src="https://cdn.jsdelivr.net/npm/playerjs@1.0.0/playerjs.min.js"></script>
+
+    <!-- Custom JS -->
+    <script defer src="main.js"></script>
+
+    <style>
+      /* Beautiful warm gradient background */
+      body {
+        background: linear-gradient(
+          135deg,
+          #fff7ed 0%,
+          #fed7aa 35%,
+          #fb923c 70%,
+          #f97316 100%
+        );
+        min-height: 100vh;
+        background-attachment: fixed;
+        background-size: cover;
+
+        /* Hide watermark */
+        pjsdiv[i="9"] {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="flex flex-col items-center justify-center font-sans text-gray-800 p-6"
+  >
+    <h1
+      class="text-4xl font-extrabold text-orange-600 mb-10 text-center drop-shadow-sm"
+    >
+      FlexPlay | Watch. Stream. Customize.
+    </h1>
+
+    <div
+      class="flex flex-col lg:flex-row gap-10 max-w-6xl w-full justify-center items-start"
+    >
+      <!-- Controls Section -->
+      <div
+        class="backdrop-blur-lg bg-white/50 border border-white/40 shadow-lg rounded-2xl p-6 w-full max-w-sm transition hover:shadow-2xl"
+      >
+        <h2 class="text-2xl font-semibold text-orange-600 mb-4">
+          Add Your Video
+        </h2>
+
+        <!-- File Upload -->
+        <label class="block font-medium text-gray-700 mb-1">Upload File</label>
+        <input
+          id="fileInput"
+          type="file"
+          accept="video/*"
+          class="block w-full rounded-lg border border-orange-200 bg-white/80 p-2.5 text-gray-700 shadow-sm focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition"
+        />
+
+        <!-- HLS URL -->
+        <label for="hlsLink" class="block mt-4 font-medium text-gray-700 mb-1"
+          >HLS (.m3u8) Link</label
+        >
+        <input
+          id="hlsLink"
+          type="text"
+          placeholder="Enter HLS/m3u8 URL"
+          class="block w-full rounded-lg border border-orange-200 bg-white/80 p-2.5 sm:p-2 text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition"
+        />
+        <button
+          id="loadHLS"
+          type="button"
+          class="mt-2 w-full bg-orange-500 text-white font-semibold rounded-lg py-2 px-4 hover:bg-orange-600 transition"
+        >
+          Load HLS Video
+        </button>
+
+        <!-- MP4 URL -->
+        <label for="mp4Link" class="block mt-4 font-medium text-gray-700 mb-1"
+          >MP4 Video Link</label
+        >
+        <input
+          id="mp4Link"
+          type="text"
+          placeholder="Enter MP4 video URL"
+          class="block w-full rounded-lg border border-orange-200 bg-white/80 p-2.5 sm:p-2 text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition"
+        />
+        <button
+          id="loadMp4"
+          type="button"
+          class="mt-2 w-full bg-orange-500 text-white font-semibold rounded-lg py-2 px-4 hover:bg-orange-600 transition"
+        >
+          Load MP4 Video
+        </button>
+      </div>
+
+      <!-- Video Player Section -->
+      <div
+        class="flex-grow bg-white/40 border border-white/30 shadow-2xl rounded-2xl overflow-hidden aspect-video max-w-3xl w-full backdrop-blur-lg transition hover:shadow-[0_0_20px_rgba(251,146,60,0.6)]"
+      >
+        <div id="player" class="w-full h-full bg-black rounded-2xl"></div>
+      </div>
+    </div>
+  </body>
+</html>
