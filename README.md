@@ -1,4 +1,4 @@
-FlexPlay - Stream
+# FlexPlay - Stream
 
 FlexPlay is a modern and customizable video player that supports local videos, MP4, HLS/m3u8 streams, and other video formats supported by Player.js.
 
